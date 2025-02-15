@@ -1,4 +1,4 @@
-package org.example.shapes.twodim;
+package org.example.shapes.polytope.twodim;
 
 public enum TwoDimShapeTypes {
     POLYGON("Polygon"),

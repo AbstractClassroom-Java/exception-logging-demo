@@ -1,6 +1,6 @@
-package org.example.shapes.twodim.polygon.triangle;
+package org.example.shapes.polytope.twodim.polygon.triangle;
 
-import org.example.shapes.twodim.polygon.IPolygon;
+import org.example.shapes.polytope.twodim.polygon.IPolygon;
 
 
 public class Triangle implements IPolygon  {

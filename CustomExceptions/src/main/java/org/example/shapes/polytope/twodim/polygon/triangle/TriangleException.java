@@ -1,6 +1,6 @@
-package org.example.shapes.twodim.polygon.triangle;
+package org.example.shapes.polytope.twodim.polygon.triangle;
 
-import org.example.shapes.twodim.polygon.PolygonException;
+import org.example.shapes.polytope.twodim.polygon.PolygonException;
 
 public class TriangleException extends PolygonException {
 

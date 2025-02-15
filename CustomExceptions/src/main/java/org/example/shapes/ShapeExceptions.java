@@ -1,18 +1,15 @@
 package org.example.shapes;
 
 public class ShapeExceptions extends Exception {
-    int errorCode;
-    public ShapeExceptions(String message) {
-        super(message);
-        this.errorCode = errorCode + 5000;
-    }
+    private final String fullErrorMessage;
+    private final String errorCode;
+    private final String customerMessage;
 
-    public int getErrorCode() {
-        return errorCode;
-    }
-
-    public String getErrorMessage() {
-        return "Error Code: " + errorCode + " - " + getMessage();
+    public ShapeExceptions(ShapeExceptions e) {
+        super(e.getFrontEndMessage());
+        this.fullErrorMessage = e.fullErrorMessage;
+        this.errorCode = e.errorCode;
+        this.customerMessage = e.customerMessage;
     }
 
     public String getFrontEndMessage() {

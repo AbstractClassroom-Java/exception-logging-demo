@@ -1,4 +1,4 @@
-package org.example.shapes.twodim.polygon;
+package org.example.shapes.polytope.twodim.polygon;
 
 import org.example.shapes.ShapeExceptions;
 

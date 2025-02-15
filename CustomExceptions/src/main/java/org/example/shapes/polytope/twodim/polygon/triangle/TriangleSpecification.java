@@ -1,4 +1,4 @@
-package org.example.shapes.twodim.polygon.triangle;
+package org.example.shapes.polytope.twodim.polygon.triangle;
 
 public enum TriangleSpecification {
     SSS("Side-Side-Side"),
