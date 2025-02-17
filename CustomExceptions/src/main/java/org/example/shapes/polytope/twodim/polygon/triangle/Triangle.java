@@ -37,10 +37,10 @@ public class Triangle implements IPolygon  {
 
     private void verifyASATriangle(double a, double b, double c) throws TriangleException {
         if (a <= 0 || c <= 0) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE);
         }
         if (b <= 0 || b >= 180) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH);
         }
         this.angle1 = a;
         this.angle2 = c;
@@ -49,17 +49,17 @@ public class Triangle implements IPolygon  {
         this.side2 = b * Math.sin(Math.toRadians(c)) / Math.sin(Math.toRadians(angle3));
         this.side3 = b;
         if (!isTriangle()) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_ASA.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_ASA);
         }
     }
 
 
     private void verifySSATriangle(double a, double b, double c) throws TriangleException {
         if (a <= 0 || b <= 0 ) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH);
         }
         if (c <= 0 || c >= 180) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE);
         }
         this.side1 = a;
         this.side2 = b;
@@ -68,17 +68,17 @@ public class Triangle implements IPolygon  {
         this.angle2 = 180 - c - angle1;
         this.side3 = b * Math.sin(Math.toRadians(c)) / Math.sin(Math.toRadians(angle1));
         if (!isTriangle()) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SSA.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SSA);
         }
     }
 
 
     private void verifyAASTriangle(double a, double b, double c) throws TriangleException {
         if (a <= 0 || b <= 0 || a >= 180 || b >= 180) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE);
         }
         if (c <= 0) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH);
         }
 
         this.angle1 = a;
@@ -88,16 +88,16 @@ public class Triangle implements IPolygon  {
         this.side2 = c * Math.sin(Math.toRadians(b)) / Math.sin(Math.toRadians(angle3));
         this.side3 = c;
         if (!isTriangle()) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_AAS.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_AAS);
         }
     }
 
     private void verifySASTriangle(double a, double b, double c) throws TriangleException {
         if (a <= 0 || c <= 0) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH);
         }
         if (b <= 0 || b >= 180) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_ANGLE);
         }
         this.side1 = a;
         this.side2 = c;
@@ -107,13 +107,13 @@ public class Triangle implements IPolygon  {
         this.angle2 = 180 - b - angle1;
         this.side3 = c * Math.sin(Math.toRadians(angle1)) / Math.sin(Math.toRadians(b));
         if (!isTriangle()) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SAS.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SAS);
         }
     }
 
     private void verifySSSTriangle(double a, double b, double c) throws TriangleException {
         if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_SIDE_LENGTH);
         }
 
         this.side1 = a;
@@ -123,7 +123,7 @@ public class Triangle implements IPolygon  {
         this.angle2 = Math.acos((side1 * side1 + side3 * side3 - side2 * side2) / (2 * side1 * side3));
         this.angle3 = Math.acos((side1 * side1 + side2 * side2 - side3 * side3) / (2 * side1 * side2));
         if (!isTriangle()) {
-            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SSS.toString());
+            throw new TriangleException(TriangleException.TriangleExceptionType.INVALID_TRIANGLE_SSS);
         }
     }
 
@@ -224,6 +224,14 @@ public class Triangle implements IPolygon  {
 
     public double getShortestSideLength() {
         return Math.min(side1, Math.min(side2, side3));
+    }
+
+    public String toString() {
+        String result = "Triangle with sides " + side1 + ", " + side2 + ", " + side3 + "\n";
+        result += "Angles: " + angle1 + ", " + angle2 + ", " + angle3 + "\n";
+        result += "Area: " + getArea() + "\n";
+        result += "Perimeter: " + getPerimeter() + "\n";
+        return result;
     }
 
 }

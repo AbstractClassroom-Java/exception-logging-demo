@@ -1,10 +1,15 @@
 package org.example.shapes.polytope.twodim.polygon;
 
 import org.example.shapes.ShapeExceptions;
+import org.example.shapes.polytope.twodim.TwoDimException;
 
-public class PolygonException extends ShapeExceptions {
+public class PolygonException extends TwoDimException {
 
-    public PolygonException(String message) {
-        super(message);
+    private static final String loggingUnit = "POLYGON";
+    public PolygonException(String fullMessage, String loggingUnit) {
+        super(
+                "Invalid Polygon. " + fullMessage,
+                updateErrorCode(PolygonException.loggingUnit, loggingUnit)
+        );
     }
 }

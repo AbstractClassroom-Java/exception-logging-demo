@@ -1,8 +1,8 @@
 package org.example.shapes.polytope.twodim.polygon.rectangle;
 
-import org.example.shapes.polytope.twodim.ITwoDimShape;
+import org.example.shapes.polytope.twodim.polygon.IPolygon;
 
-public interface IRectangle extends ITwoDimShape {
+public interface IRectangle extends IPolygon {
     double getLength();
     double getWidth();
 

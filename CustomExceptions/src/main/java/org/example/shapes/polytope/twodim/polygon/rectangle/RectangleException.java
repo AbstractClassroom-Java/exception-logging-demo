@@ -2,7 +2,7 @@ package org.example.shapes.polytope.twodim.polygon.rectangle;
 
 import org.example.shapes.polytope.twodim.polygon.PolygonException;
 
-public class RectangleException extends PolygonException {
+public final class RectangleException extends PolygonException {
 
     public static enum RectangleExceptionType {
         INVALID_LENGTH("Length must be greater than 0"),
@@ -10,7 +10,6 @@ public class RectangleException extends PolygonException {
         INVALID_SIDE_LENGTH("Side length must be greater than 0");
 
         private final String message;
-
         RectangleExceptionType(String message) {
             this.message = message;
         }
@@ -20,7 +19,8 @@ public class RectangleException extends PolygonException {
         }
     }
 
-    public RectangleException(String message) {
-        super(message);
+    private static final String loggingUnit = "RECTANGLE";
+    public RectangleException(RectangleExceptionType type) {
+        super(type.toString(),RectangleException.loggingUnit);
     }
 }

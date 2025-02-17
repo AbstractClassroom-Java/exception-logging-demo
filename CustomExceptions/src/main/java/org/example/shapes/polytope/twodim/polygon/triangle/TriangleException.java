@@ -14,15 +14,15 @@ public class TriangleException extends PolygonException {
         INVALID_TRIANGLE_ASA("Invalid triangle with given angle, side, and angle");
 
         private final String message;
-
         TriangleExceptionType(String message) {
             this.message = message;
         }
 
     }
 
-    public TriangleException(String message) {
-        super(message);
+    private static final String loggingUnit = "TRIANGLE";
+    public TriangleException(TriangleExceptionType type) {
+        super(type.toString(), TriangleException.loggingUnit);
     }
 
 }
